@@ -1,0 +1,66 @@
+/* Load Bauhaus Font */
+@font-face {
+  font-family: 'Bauhaus';
+  src: url('/fonts/BauhausRegular.ttf') format('truetype'),
+       url('../assets/BauhausRegular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Brand Color Tokens */
+  --color-primary-orange: #FC3F04;
+  --color-primary-orange-hover: #E03502;
+  --color-primary-orange-rgb: 252, 63, 4;
+  --color-primary-dark: #C92F00;
+  --color-primary-light: rgba(252, 63, 4, 0.08);
+
+  /* Background Tokens */
+  --color-bg-sand: #FBF1E6;
+  --color-bg-sand-light: #FDF8F3;
+  --color-bg-white: #FFFFFF;
+  --color-bg-dark: #14181F;
+  --color-bg-dark-secondary: #0F1217;
+  --color-bg-dark-card: #1C222B;
+
+  /* Text Color Tokens */
+  --color-text-dark: #14181F;
+  --color-text-black: #000000;
+  --color-text-body: #4A5568;
+  --color-text-muted: #71717A;
+  --color-text-light: #FFFFFF;
+
+  /* UI Tokens */
+  --color-border-subtle: #E2DBD2;
+  --color-border-dark: #272F3B;
+  --color-border-card: #ECE6DD;
+  --color-star-gold: #F59E0B;
+
+  /* Typography */
+  /* Bauhaus ONLY for big text / main section titles */
+  --font-bauhaus: 'Bauhaus', sans-serif;
+  /* Clean standard sans for all other text & small words */
+  --font-heading: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+
+  /* Layout & Spacing */
+  --container-max-width: 1284px;
+  --section-padding-y: 80px;
+  --section-padding-y-lg: 100px;
+  
+  /* Radii */
+  --radius-xs: 3px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-pill: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 14px rgba(20, 24, 31, 0.08);
+  --shadow-lg: 0 12px 30px rgba(20, 24, 31, 0.12);
+  --shadow-hover: 0 16px 36px rgba(252, 63, 4, 0.14);
+}

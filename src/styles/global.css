@@ -1,0 +1,331 @@
+@import './variables.css';
+
+/* Base Reset & Typography */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body) !important;
+  color: var(--color-text-body);
+  background-color: var(--color-bg-sand);
+  line-height: 1.65;
+  overflow-x: hidden;
+  width: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Bauhaus font ONLY for Big Titles */
+.section-title,
+.hero-title,
+.title-bauhaus {
+  font-family: var(--font-bauhaus) !important;
+  letter-spacing: 0.02em;
+}
+
+/* All other text & small words use body font (NOT Bauhaus) */
+.section-tag,
+.nav-link-custom,
+.btn-brand-orange,
+.btn-brand-pill,
+h3, h4, h5, h6,
+p, a, input, select, textarea,
+.counter-label,
+.card-title,
+.footer-heading {
+  font-family: var(--font-body) !important;
+}
+
+/* Custom Container System matching the 1440px Figma Artboard */
+.container-custom {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (min-width: 480px) {
+  .container-custom {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-custom {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-custom {
+    padding-left: 54px;
+    padding-right: 54px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-custom {
+    padding-left: 78px;
+    padding-right: 78px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container-custom {
+    max-width: 1360px;
+    padding-left: 78px;
+    padding-right: 78px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .container-custom {
+    max-width: 1440px;
+  }
+}
+
+@media (min-width: 2560px) {
+  .container-custom {
+    max-width: 1600px;
+  }
+}
+
+/* Section Header Typography */
+.section-tag {
+  display: inline-block;
+  font-family: var(--font-body) !important;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #7A726B;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .section-tag {
+    font-size: 16px;
+    margin-bottom: 14px;
+  }
+}
+
+.section-tag.text-orange {
+  color: var(--color-primary-orange) !important;
+}
+
+.section-tag.with-line::after {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 2px;
+  background-color: var(--color-primary-orange);
+  margin-top: 6px;
+}
+
+/* 54px Big Heading with Bauhaus */
+.section-title {
+  font-family: var(--font-bauhaus) !important;
+  font-size: clamp(1.9rem, 4.2vw, 3.375rem); /* Up to exactly 54px on desktop */
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-text-dark);
+  margin-bottom: 18px;
+}
+
+.section-title .text-orange {
+  color: var(--color-primary-orange);
+}
+
+.section-description {
+  font-family: var(--font-body) !important;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #555E68;
+  max-width: 760px;
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .section-description {
+    font-size: 16px;
+  }
+}
+
+/* Custom Buttons */
+.btn-brand-orange {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary-orange);
+  color: #FFFFFF !important;
+  font-family: var(--font-body) !important;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  padding: 10px 26px;
+  border-radius: 4px;
+  border: 1px solid var(--color-primary-orange);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  box-shadow: 0 4px 12px rgba(252, 63, 4, 0.18);
+}
+
+.btn-brand-orange:hover,
+.btn-brand-orange:focus {
+  background-color: var(--color-primary-orange-hover);
+  border-color: var(--color-primary-orange-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(252, 63, 4, 0.3);
+}
+
+.btn-brand-pill {
+  border-radius: var(--radius-pill);
+  padding: 11px 26px;
+}
+
+/* Navbar */
+.main-navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 24px 0;
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .main-navbar {
+    padding: 28px 0;
+  }
+}
+
+.main-navbar.scrolled {
+  position: fixed;
+  background-color: rgba(20, 24, 31, 0.96);
+  backdrop-filter: blur(12px);
+  padding: 16px 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-brand-logo {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+}
+
+@media (min-width: 768px) {
+  .navbar-brand-logo {
+    height: 50px;
+  }
+}
+
+.nav-link-custom {
+  font-family: var(--font-body) !important;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92) !important;
+  padding: 6px 16px !important;
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+
+.nav-link-custom:hover,
+.nav-link-custom.active {
+  color: var(--color-primary-orange) !important;
+}
+
+/* Section Spacing */
+.section-py {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+@media (min-width: 768px) {
+  .section-py {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-py {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}
+
+/* Hover Lift */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 30px rgba(20, 24, 31, 0.1) !important;
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Focus styles for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-primary-orange);
+  outline-offset: 2px;
+}
+
+/* Small Screens Centering Rules (Mobile-first centering) */
+@media (max-width: 991.98px) {
+  .mobile-center-content {
+    text-align: center !important;
+  }
+
+  .mobile-center-content .section-tag,
+  .mobile-center-content .section-title,
+  .mobile-center-content .section-description,
+  .mobile-center-content p {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .mobile-center-content .section-tag.with-line::after {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .mobile-center-content .btn-brand-orange {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .mobile-center-content .btn-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+}
